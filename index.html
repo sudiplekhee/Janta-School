@@ -3,212 +3,1460 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Janata Secondary School</title>
-    <link rel="stylesheet" href="style.css">
-  
+    <title>Shree Janata Secondary School | Ramdhuni-3, Singya, Sunsari</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #003366;
+            --secondary: #ff6b6b;
+            --accent: #4ecdc4;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
 
-    
-  
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: #3ab7af;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid var(--white);
+            object-fit: cover;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 102, 204, 0.7)), url('school-building.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .features {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+
+        .feature-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Programs Section */
+        .programs {
+            background-color: var(--light-gray);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .program-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .program-card:hover .program-img img {
+            transform: scale(1.1);
+        }
+
+        .program-content {
+            padding: 25px;
+        }
+
+        .program-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .program-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .program-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Faculty Section */
+        .faculty {
+            background-color: var(--white);
+        }
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .faculty-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faculty-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .faculty-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .faculty-info {
+            padding: 25px;
+        }
+
+        .faculty-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+
+        .faculty-info p {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .faculty-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .faculty-social a {
+            color: var(--gray);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .faculty-social a:hover {
+            color: var(--primary);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--light-gray);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            aspect-ratio: 1/1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: var(--primary);
+            z-index: 0;
+        }
+
+        .testimonials .section-title h2 {
+            color: var(--white);
+            position: relative;
+        }
+
+        .testimonials .section-title::after {
+            background: var(--white);
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-gray);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .contact-text p, .contact-text a {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--white);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                order: -1;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--primary-dark);
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+
+            .author-info h4 {
+                font-size: 1rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-      <!-- Navigation Section -->
-      <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#faculty">Faculty</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <header>
-        <div class="container">
-            <img src="logo.jpg" alt="Civil Engineering Logo" class="logo">
-            <div class="header-text">
-                <h1>Shree Janata Secondary School</h1>
-                <p>Ramdhuni-3, Singya, Sunsari | Civil Engineering First Batch 2076</p>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Shree Janata Secondary School Logo" class="logo">
+                <div class="logo-text">
+                    <h1>Shree Janata Secondary School</h1>
+                    <p>Ramdhuni-3, Singya, Sunsari</p>
+                </div>
             </div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#faculty">Faculty</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    
- 
-     <!-- Video Tag -->
-     <video controls width="1404">
-        <source src="singya.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <!-- Welcome Section -->
-    <section id="welcome" class="section">
-        <h2>Welcome to Shree Janata Secondary School</h2>
-        <p>
-            We are dedicated to shaping the future of students with quality education and holistic development. 
-            Explore our programs, meet our faculty, and join a community that fosters innovation and excellence.
-        </p>
-        <a href="#contact" class="cta-button">Contact Us Today</a>
-    </section>
-    
-    <!-- Main Content -->
-    <main>
-        <section id="about" class="section">
-            <h2>About Us</h2>
-            <p>
-                Welcome to Shree Janata Secondary School, located at the heart of Ramdhuni-3, Singya, Sunsari. Since its inception, our school has been dedicated to providing quality education that shapes the leaders and innovators of tomorrow. We are proud to be one of the most reputed institutions in the region, renowned for our exceptional academic programs, state-of-the-art facilities, and a highly qualified teaching faculty.
-            </p>
-            <p>
-                Established with a vision to empower young minds, Shree Janata Secondary School offers a nurturing environment where students are encouraged to explore their potential. We strongly believe in blending traditional values with modern educational practices to ensure holistic development for our students.
-            </p>
-            <h3>Our Unique Features:</h3>
-            <ul>
-                <li><strong>Comprehensive Curriculum:</strong> From Nursery to Grade 12, we offer a wide range of subjects and specialized courses, catering to both Nepali and English mediums.</li>
-                <li><strong>Specialized Engineering Program:</strong> Introduced in 2076, our Civil Engineering course is a trailblazer in the region, providing hands-on technical education starting from Grade 9. With only 48 seats, it ensures personalized attention to every student.</li>
-                <li><strong>Dedicated Faculty:</strong> Our teachers are not just educators but mentors who guide students academically and morally.</li>
-                <li><strong>State-of-the-Art Facilities:</strong> From modern science and computer labs to fully equipped libraries, we ensure students have access to the best resources.</li>
-                <li><strong>Co-Curricular Excellence:</strong> We promote extracurricular activities, including sports, arts, debates, and cultural programs, to foster creativity and teamwork.</li>
-            </ul>
-            <p>
-                Our mission is to nurture students to become responsible citizens and skilled professionals who contribute meaningfully to society. Whether it's excelling academically, exploring their interests in engineering, or preparing for higher studies, Shree Janata Secondary School equips students with the tools they need to succeed.
-            </p>
-        </section>
 
-        <!-- Faculty Section -->
-        <section id="faculty" class="section">
-            <h2>Our Faculty</h2>
-            <h3>Management Faculty</h3>
-            <p>We provide expert instruction in management studies, preparing students for leadership roles in various industries.</p>
-    
-            <h3>Teaching Faculty (Class Nursery to 12 - Nepali Medium)</h3>
-            <p>Our teachers are highly qualified and dedicated to providing the best education to our students in Nepali medium.</p>
-    
-            <h3>English Medium Faculty (Class 8 Onwards)</h3>
-            <p>Our English medium faculty is equipped with modern teaching tools to ensure a high standard of education.</p>
-    
-            <h3>Engineering Faculty (Class 9 Onwards)</h3>
-            <p>Our Engineering program begins at class 9, focusing on Civil Engineering, with experienced faculty and state-of-the-art resources. Only 48 seats available in this course.</p>
-        </section>
-    
-        <!-- Key Personnel Section -->
-        <section id="personnel" class="section">
-            <h2>Key Personnel</h2>
-            <ul>
-                <li><strong>Principal:</strong> Dhaniklal Mehta</li>
-                <li><strong>Vice Principal:</strong> Dinesh Chaudhary</li>
-                <li><strong>Engineering Coordinator:</strong> Er. Shrawan Chaudhary</li>
-                <li><strong>Website Designed by:</strong> Sudip Lekhee (Student of Shree Janata Mavi Singya)</li>
-            </ul>
-        </section>
-    
-        <!-- Courses Section -->
-        <section id="courses" class="section">
-            <h2>Our Courses</h2>
-            <ul>
-                <li>Secondary Level Education (Class 1-12 Nepali Medium)</li>
-                <li>Class 8 Onwards (English Medium)</li>
-                <li>Engineering (Civil Engineering from Class 9)</li>
-                <li>Management Studies</li>
-                <li>Computer Science</li>
-            </ul>
-        </section>
-    
-        <!-- Passout Batch Section -->
-        <section id="passout-batch" class="section">
-            <h2>Passout Batch Gallery</h2>
-            <div class="batch-gallery-container">
-                <div class="batch">
-                    <img src="batch2080.jpg" alt="Passout Batch 2080" class="batch-img">
-                    <p><strong>Passout Batch: 2080</strong></p>
-                </div>
-                <div class="batch">
-                    <img src="batch2081.jpg" alt="Passout Batch 2081" class="batch-img">
-                    <p><strong>Passout Batch: 2081</strong></p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Quality Education for Future Leaders</h1>
+                <p>Shree Janata Secondary School provides exceptional education from Nursery to Grade 12 with specialized programs in Civil Engineering and Management Studies.</p>
+                <div class="hero-btns">
+                    <a href="#programs" class="btn">Explore Programs</a>
+                    <a href="#contact" class="btn btn-accent">Admission Info</a>
                 </div>
             </div>
-        </section>
-    
-        <!-- Photo Gallery Section -->
-        <section id="gallery" class="section">
-            <h2>Photo Gallery</h2>
-            <div class="gallery-container">
-                <img src="photo1.jpg" alt="School Building" class="gallery-img">
-                <img src="photo2.jpg" alt="Students in Classroom" class="gallery-img">
-                <img src="photo3.jpg" alt="Engineering Workshop" class="gallery-img">
-                <img src="photo4.jpg" alt="Cultural Program" class="gallery-img">
-                <img src="photo.jpg" alt="Sports Event" class="gallery-img">
-                <img src="photo6.jpg" alt="Library" class="gallery-img">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our School</h2>
             </div>
-        </section>
-    
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="section">
-            <h2>What Our Students Say</h2>
-            <div class="testimonials-container">
-                <div class="testimonial">
-                    <p>"The Civil Engineering program at Shree Janata Secondary School has been a life-changing experience for me. The faculty is amazing!"</p>
-                    <strong>- Sudip Chaudhary, Batch of 2080</strong>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Empowering Students Since Establishment</h3>
+                    <p>Shree Janata Secondary School, located in Ramdhuni-3, Singya, Sunsari, has been a cornerstone of quality education in the region. We are committed to nurturing young minds through a balanced approach of academic excellence and character development.</p>
+                    <p>Our Civil Engineering program, introduced in 2076, is a pioneering initiative in the region, providing hands-on technical education starting from Grade 9 with limited seats to ensure personalized attention.</p>
+                    
+                    <div class="features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Comprehensive Curriculum</h4>
+                                <p>From Nursery to Grade 12 with specialized technical programs</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Modern Facilities</h4>
+                                <p>State-of-the-art labs and learning resources</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Expert Faculty</h4>
+                                <p>Highly qualified and dedicated teaching staff</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Holistic Development</h4>
+                                <p>Focus on academic, social, and personal growth</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial">
-                    <p>"I loved the friendly environment and the dedication of the teachers. It helped me achieve my dreams."</p>
-                    <strong>- Bijay Chaudhary, Batch of 2081</strong>
+                
+                <div class="about-img">
+                    <img src="school-building.jpg" alt="Shree Janata Secondary School Building">
                 </div>
             </div>
-        </section>
-    
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <h2>Contact Us</h2>
-            <p>
-                <strong>Address:</strong> Ramdhuni-3, Singya, Sunsari<br>
-                <strong>Email:</strong> jss.civil.engineering076@gmail.com<br>
-                <strong>Phone:</strong> +977- 984-2419131
-            </p>
-        </section>
-    
-        <!-- Social Media Section -->
-        <section id="social" class="section">
-            <h2>Follow Us</h2>
-            <p>Connect with us on social media for updates and insights:</p>
-            <div class="social-links">
-                <a href="#" target="_blank">Facebook</a> | 
-                <a href="#" target="_blank">Instagram</a> | 
-                <a href="#" target="_blank">Twitter</a> | 
-                <a href="#" target="_blank">YouTube</a>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="section programs" id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
             </div>
-        </section>
-    
-        <!-- Contact Form Section -->
-        <section id="contact-form" class="section">
-            <h2>Contact Us</h2>
-            <p>Have any questions or inquiries? Fill out the form below, and we will get back to you as soon as possible.</p>
-            <form action="#" method="post" class="styled-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your full name" required>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="primary-students.jpg" alt="Primary Education">
+                    </div>
+                    <div class="program-content">
+                        <h3>Primary Education</h3>
+                        <p>Nursery to Grade 5 with a focus on foundational skills and holistic development in Nepali medium.</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-users"></i> 25 Students/Class</span>
+                            <span><i class="fas fa-book"></i> Nepali Medium</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your email address" required>
+                
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="secondary-students.jpg" alt="Secondary Education">
+                    </div>
+                    <div class="program-content">
+                        <h3>Secondary Education</h3>
+                        <p>Grade 6 to 10 with comprehensive curriculum preparing students for SEE in Nepali medium.</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-users"></i> 30 Students/Class</span>
+                            <span><i class="fas fa-book"></i> Nepali Medium</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="engineering-lab.jpg" alt="Civil Engineering">
+                    </div>
+                    <div class="program-content">
+                        <h3>Civil Engineering</h3>
+                        <p>Specialized technical program starting from Grade 9 with hands-on training and limited seats.</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-users"></i> 48 Students</span>
+                            <span><i class="fas fa-cogs"></i> Technical</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+                
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="management-class.jpg" alt="Management Studies">
+                    </div>
+                    <div class="program-content">
+                        <h3>Management Studies</h3>
+                        <p>Grade 11-12 with business and management focus preparing students for higher education.</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-users"></i> 35 Students/Class</span>
+                            <span><i class="fas fa-chart-line"></i> English Medium</span>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="submit-button">Send Message</button>
-            </form>
-        </section>
-    </main>
-    
-    <!-- Footer Section -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Section -->
+    <section class="section faculty" id="faculty">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Faculty</h2>
+            </div>
+            
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <div class="faculty-img">
+                        <img src="principal.jpg" alt="Principal Dhaniklal Mehta">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Dhaniklal Mehta</h3>
+                        <p>Principal</p>
+                        <p>20+ years of educational leadership</p>
+                        <div class="faculty-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faculty-card">
+                    <div class="faculty-img">
+                        <img src="vice-principal.jpg" alt="Vice Principal Dinesh Chaudhary">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Dinesh Chaudhary</h3>
+                        <p>Vice Principal</p>
+                        <p>Specialized in Educational Administration</p>
+                        <div class="faculty-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faculty-card">
+                    <div class="faculty-img">
+                        <img src="engineering-coordinator.jpg" alt="Engineering Coordinator Shrawan Chaudhary">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Er. Shrawan Chaudhary</h3>
+                        <p>Engineering Coordinator</p>
+                        <p>Civil Engineering Specialist</p>
+                        <div class="faculty-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faculty-card">
+                    <div class="faculty-img">
+                        <img src="science-teacher.jpg" alt="Science Faculty">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Dr. Anjali Sharma</h3>
+                        <p>Science Faculty</p>
+                        <p>PhD in Physics</p>
+                        <div class="faculty-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>School Gallery</h2>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="classroom.jpg" alt="Classroom">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="lab.jpg" alt="Science Lab">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="library.jpg" alt="Library">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="sports.jpg" alt="Sports Day">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="cultural.jpg" alt="Cultural Program">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="engineering-class.jpg" alt="Engineering Class">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="batch2080.jpg" alt="Batch 2080">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="batch2081.jpg" alt="Batch 2081">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Students Say</h2>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        The Civil Engineering program at Shree Janata Secondary School has been a life-changing experience for me. The faculty is amazing and the practical approach to learning has prepared me well for my future career.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="student1.jpg" alt="Sudip Chaudhary">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sudip Chaudhary</h4>
+                            <p>Batch of 2080</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        I loved the friendly environment and the dedication of the teachers. The management studies program helped me develop both academic knowledge and practical skills that were crucial for my higher studies.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="student2.jpg" alt="Bijay Chaudhary">
+                        </div>
+                        <div class="author-info">
+                            <h4>Bijay Chaudhary</h4>
+                            <p>Batch of 2081</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Our Location</h3>
+                            <p>Ramdhuni-3, Singya, Sunsari, Nepal</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Us</h3>
+                            <a href="mailto:jss.civil.engineering076@gmail.com">jss.civil.engineering076@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Call Us</h3>
+                            <a href="tel:+9779842419131">+977-984-2419131</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Opening Hours</h3>
+                            <p>Sunday-Friday: 9:00 AM - 4:00 PM</p>
+                            <p>Closed on Saturdays and Public Holidays</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Shree Janata Secondary School | All Rights Reserved</p>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>Shree Janata Secondary School is committed to providing quality education from Nursery to Grade 12 with specialized programs in Civil Engineering and Management Studies.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#faculty">Faculty</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Primary Education</a></li>
+                        <li><a href="#">Secondary Education</a></li>
+                        <li><a href="#">Civil Engineering</a></li>
+                        <li><a href="#">Management Studies</a></li>
+                        <li><a href="#">English Medium</a></li>
+                        <li><a href="#">Nepali Medium</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Ramdhuni-3, Singya, Sunsari</p>
+                    <p><i class="fas fa-envelope"></i> jss.civil.engineering076@gmail.com</p>
+                    <p><i class="fas fa-phone-alt"></i> +977-984-2419131</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Shree Janata Secondary School. All Rights Reserved. | Designed by Sudip Lekhee</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuToggle.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Simple testimonial slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.display = i === index ? 'block' : 'none';
+            });
+        }
+        
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        // Initialize
+        showTestimonial(0);
+        setInterval(nextTestimonial, 5000);
+    </script>
 </body>
 </html>
-    
