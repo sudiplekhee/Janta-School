@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="events-gallery">
+    <h1>All Events Gallery</h1>
+    
+    <div class="event-album">
+        <h2>Annual Day 2024</h2>
+        <div class="event-photos">
+            <img src="events/annual-day-1.jpg" alt="Annual Day 2024">
+            <img src="events/annual-day-2.jpg" alt="Annual Day 2024">
+            <img src="events/annual-day-3.jpg" alt="Annual Day 2024">
+            <a href="#gallery/events/annual-day-2024" class="view-all">View All (45 photos)</a>
+        </div>
+    </div>
+    
+    <div class="event-album">
+        <h2>Sports Day 2024</h2>
+        <div class="event-photos">
+            <img src="events/sports-day-1.jpg" alt="Sports Day 2024">
+            <img src="events/sports-day-2.jpg" alt="Sports Day 2024">
+            <img src="events/sports-day-3.jpg" alt="Sports Day 2024">
+            <a href="#gallery/events/sports-day-2024" class="view-all">View All (32 photos)</a>
+        </div>
+    </div>
+    
+    <!-- More events can be added here -->
+</div>
+
+<style>
+    .events-gallery {
+        padding: 20px;
+    }
+    
+    .event-album {
+        margin-bottom: 30px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+    }
+    
+    .event-photos {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .event-photos img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    
+    .view-all {
+        display: inline-block;
+        margin-top: 10px;
+        color: #0066cc;
+        text-decoration: none;
+    }
+</style>
+</body>
+</html>
